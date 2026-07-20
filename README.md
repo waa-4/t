@@ -1,27 +1,22 @@
-# Visual Code Studio
+# Visual Code Studio v2
 
-A beginner-friendly visual website builder that teaches HTML, CSS, and JavaScript while you use it.
+Flat-file GitHub Pages version.
 
-## Features
+## Major v2 fix
 
-- Visual blocks for common HTML elements
-- CSS style blocks
-- JavaScript events, variables, conditions, and loops
-- Custom HTML, CSS, and JavaScript blocks for anything not built in
-- Live preview
-- Generated code tabs
-- Browser autosave
-- Project save/open using `.visual.json`
-- GitHub-ready ZIP export with no external libraries
+Direct HTML, CSS, and JavaScript edits are preserved instead of silently disappearing when visual blocks update.
 
-## Run
+Each code language can independently be:
 
-Open `index.html`. A local server such as VS Code Live Server is recommended but not required.
+- generated from blocks
+- manually edited
 
-## GitHub Pages
+Use **Regenerate** only when you intentionally want to replace manual code in the active tab.
 
-Upload the contents to a repository, then enable Pages from the `main` branch and `/ (root)`.
+## New additions
 
-## Extending it
+Link, input, text area, lists, dividers, cards, audio, video, ID styling, hover styling,
+animations, visibility toggles, style changes, click counters, random numbers, timers,
+keyboard events, console logging, and reusable functions.
 
-Block definitions are in `js/app.js` inside the `types` object. This is intentionally a small v1 foundation rather than a giant complicated editor.
+The block library and visual program are both scrollable.
