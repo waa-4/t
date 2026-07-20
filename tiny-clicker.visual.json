@@ -1,0 +1,10 @@
+{
+  "projectName": "tiny-clicker",
+  "blocks": [
+    {"id":"1","type":"pageStyle","values":{"background":"#101820","color":"#ffffff","font":"Arial, sans-serif","padding":"24px"}},
+    {"id":"2","type":"heading","values":{"text":"Tiny Clicker","level":"1","id":"","className":""}},
+    {"id":"3","type":"paragraph","values":{"text":"Score: 0","id":"scoreText","className":""}},
+    {"id":"4","type":"button","values":{"text":"Add one","id":"addButton","className":""}},
+    {"id":"5","type":"customJs","values":{"code":"let score = 0;\ndocument.getElementById('addButton').addEventListener('click', () => {\n  score++;\n  document.getElementById('scoreText').textContent = `Score: ${score}`;\n});"}}
+  ]
+}

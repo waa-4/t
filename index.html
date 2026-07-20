@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual Code Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div><h1>Visual Code Studio</h1><p>Build visually, inspect the code, and learn as you go.</p></div>
+    <div class="top-actions">
+      <button id="newProjectBtn">New</button>
+      <button id="saveProjectBtn">Save Project</button>
+      <label class="button-like">Open Project<input id="openProjectInput" type="file" accept=".json,application/json" hidden></label>
+      <button id="exportZipBtn" class="primary">Export GitHub ZIP</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <aside class="toolbox panel">
+      <h2>Blocks</h2><p class="hint">Click a block to add it.</p>
+      <details open><summary>Page</summary>
+        <button data-add-block="heading">Heading</button><button data-add-block="paragraph">Paragraph</button>
+        <button data-add-block="button">Button</button><button data-add-block="image">Image</button>
+        <button data-add-block="container">Container</button><button data-add-block="spacer">Spacer</button>
+      </details>
+      <details open><summary>Style</summary>
+        <button data-add-block="pageStyle">Page Style</button><button data-add-block="classStyle">Class Style</button>
+        <button data-add-block="customCss">Custom CSS</button>
+      </details>
+      <details open><summary>JavaScript</summary>
+        <button data-add-block="alertEvent">Button Alert</button><button data-add-block="changeTextEvent">Change Text</button>
+        <button data-add-block="variable">Variable</button><button data-add-block="condition">Condition</button>
+        <button data-add-block="loop">Loop</button><button data-add-block="customJs">Custom JavaScript</button>
+      </details>
+      <details><summary>Advanced</summary><button data-add-block="customHtml">Custom HTML</button><button data-add-block="comment">Comment</button></details>
+      <div class="learning-box"><strong>Learning tip</strong><p>Change one field and watch the code update.</p></div>
+    </aside>
+
+    <section class="builder panel">
+      <div class="panel-heading"><div><h2>Visual Program</h2><p class="hint">Blocks run from top to bottom.</p></div><button id="clearBlocksBtn" class="danger subtle">Clear</button></div>
+      <div id="blockList" class="block-list"></div><div id="emptyState" class="empty-state">Add a block from the left to begin.</div>
+    </section>
+
+    <section class="right-column">
+      <section class="preview panel">
+        <div class="panel-heading"><div><h2>Live Preview</h2><p id="previewStatus" class="hint">Ready</p></div><div class="preview-actions"><button id="refreshPreviewBtn">Refresh</button><button id="openPreviewBtn">Open</button></div></div>
+        <iframe id="previewFrame" title="Live preview" sandbox="allow-scripts allow-modals"></iframe>
+      </section>
+      <section class="code panel">
+        <div class="tabs"><button class="tab active" data-tab="html">HTML</button><button class="tab" data-tab="css">CSS</button><button class="tab" data-tab="js">JavaScript</button></div>
+        <div class="code-toolbar"><span id="codeLabel">Generated HTML</span><button id="copyCodeBtn">Copy</button></div>
+        <textarea id="htmlCode" class="code-editor active" spellcheck="false"></textarea>
+        <textarea id="cssCode" class="code-editor" spellcheck="false"></textarea>
+        <textarea id="jsCode" class="code-editor" spellcheck="false"></textarea>
+        <div class="code-help">You can edit generated code directly. Visual block changes may regenerate it.</div>
+      </section>
+    </section>
+  </main>
+
+  <template id="blockTemplate"><article class="code-block"><div class="block-header"><strong class="block-title"></strong><div class="block-actions"><button data-action="up">↑</button><button data-action="down">↓</button><button data-action="duplicate">⧉</button><button data-action="delete" class="danger">×</button></div></div><div class="block-fields"></div><details class="block-explanation"><summary>What this creates</summary><p></p></details></article></template>
+  <script src="app.js"></script>
+</body>
+</html>
