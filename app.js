@@ -19,6 +19,7 @@ const groups={
 
 const defs={
  heading:{title:"Heading",desc:"Creates an h1–h6 heading.",f:[["text","Text","text","Hello world"],["level","Level","select","1",["1","2","3","4","5","6"]],["id","ID","text",""],["className","Class","text",""]]},
+ hgroup:{title:"Heading Group",desc:"Groups a heading and subtitle using the HTML hgroup element.",f:[["title","Title","text","Game title"],["subtitle","Subtitle","text","A short subtitle"],["level","Heading level","select","1",["1","2","3","4","5","6"]],["id","ID","text",""]]},
  paragraph:{title:"Paragraph",desc:"Creates normal paragraph text.",f:[["text","Text","textarea","This is a paragraph."],["id","ID","text",""],["className","Class","text",""]]},
  button:{title:"Button",desc:"Creates a clickable button.",f:[["text","Text","text","Click me"],["id","ID","text","myButton"],["className","Class","text",""]]},
  image:{title:"Image",desc:"Shows an image.",f:[["src","URL or path","text","https://placehold.co/400x220"],["alt","Description","text","Image"],["width","Width","number","400"],["className","Class","text",""]]},
@@ -74,7 +75,7 @@ function esc(s){return String(s??"").replaceAll("&","&amp;").replaceAll('"',"&qu
 function buildLibrary(filter=""){
   const box=$("#blockLibrary");box.innerHTML="";
   for(const [group,types] of Object.entries(groups)){
-    const matches=types.filter(t=>(defs[t].title+" "+defs[t].desc).toLowerCase().includes(filter.toLowerCase()));
+    const matches=types.filter(t=>defs[t]&&(defs[t].title+" "+defs[t].desc).toLowerCase().includes(filter.toLowerCase()));
     if(!matches.length)continue;
     const section=document.createElement("section");section.className="category";
     section.innerHTML=`<h3>${group}</h3>`;
@@ -209,7 +210,7 @@ $("#useGeneratedBtn").onclick=()=>{const l=activeLang();state.manual[l]=false;ge
 $("#copyBtn").onclick=async()=>{await navigator.clipboard.writeText($(".editor.active").value);$("#copyBtn").textContent="Copied";setTimeout(()=>$("#copyBtn").textContent="Copy",800)};
 
 buildLibrary();
-try{const s=localStorage.getItem("vcs.v3");if(s)load(JSON.parse(s))}catch{}
+try{const s=localStorage.getItem("vcs.v3")||localStorage.getItem("vcs.v2");if(s)load(JSON.parse(s))}catch(error){console.warn("Could not load saved project",error)}
 if(!state.blocks.length&&!state.code.html){
  state.blocks=[make("pageStyle"),make("heading"),make("paragraph"),make("button"),make("alertEvent")];
  state.blocks[1].values.text="My first visual website";state.blocks[3].values.id="buns";state.blocks[4].values.targetId="buns";
