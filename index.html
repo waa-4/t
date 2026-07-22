@@ -3,22 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Visual Code Studio v3</title>
+  <title>T Web Builder v4</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="topbar">
     <div>
-      <h1>Visual Code Studio <span>v3</span></h1>
-      <p>Build visually, edit real code, and keep both.</p>
+      <h1>T Web Builder <span>v4</span></h1>
+      <p>Build websites, arcade pages, and games without needing to write code.</p>
     </div>
     <div class="top-actions">
       <button id="newBtn">New</button>
+      <button id="templatesBtn">Game Templates</button>
+      <button id="assetsBtn">Asset Manager</button>
       <button id="saveBtn">Save Project</button>
       <label class="button-like">Open Project<input id="openInput" type="file" accept=".json" hidden></label>
       <button id="exportBtn" class="primary">Export GitHub ZIP</button>
     </div>
   </header>
+
+  <section class="project-strip">
+    <label>Website title <input id="websiteTitle" type="text" value="My Website"></label>
+    <label class="check-line"><input id="responsiveToggle" type="checkbox" checked> Auto-rescale for mobile and PC</label>
+  </section>
 
   <main class="workspace">
     <aside class="library panel">
@@ -98,6 +105,22 @@
       <details><summary>What this creates</summary><p class="explanation"></p></details>
     </article>
   </template>
+
+  <dialog id="templatesDialog" class="tool-dialog">
+    <div class="dialog-head"><div><h2>Game Templates</h2><p>Pick a ready-to-edit starting point.</p></div><button data-close="templatesDialog">×</button></div>
+    <div id="templateGrid" class="template-grid"></div>
+  </dialog>
+
+  <dialog id="assetsDialog" class="tool-dialog wide-dialog">
+    <div class="dialog-head"><div><h2>Asset Manager</h2><p>Add images and sounds, organize them into folders, copy names, and use them in blocks.</p></div><button data-close="assetsDialog">×</button></div>
+    <div class="asset-toolbar">
+      <label class="button-like primary">Add Files<input id="assetInput" type="file" multiple accept="image/*,audio/*,video/*,.json,.txt" hidden></label>
+      <button id="newFolderBtn">New Folder</button>
+      <input id="assetSearch" type="search" placeholder="Search assets...">
+    </div>
+    <div id="assetList" class="asset-list"></div>
+    <p class="small-note">Assets are stored inside the project as data, so previews and exported sites keep working.</p>
+  </dialog>
 
   <script src="app.js"></script>
 </body>

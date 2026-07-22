@@ -1,22 +1,15 @@
-# Visual Code Studio v3
+# T Web Builder v4 — Arcade Foundation
 
-Flat-file GitHub Pages version.
+A visual website and game builder with game templates, asset management, wiring blocks, configurable effects, responsive scaling, and export to a GitHub-ready ZIP.
 
-## Major v2 fix
+## New in v4
+- T Web Builder branding
+- Website title setting
+- Game Templates
+- Asset Manager for images and sounds
+- Random image and sound wiring blocks
+- Start menu, WASD player, mobile joystick, health, attack, enemy spawning, camera follow, and responsive game blocks
+- Matrix Rain and many additional background effects
+- Mobile/PC auto-rescale toggle
 
-Direct HTML, CSS, and JavaScript edits are preserved instead of silently disappearing when visual blocks update.
-
-Each code language can independently be:
-
-- generated from blocks
-- manually edited
-
-Use **Regenerate** only when you intentionally want to replace manual code in the active tab.
-
-## New additions
-
-Link, input, text area, lists, dividers, cards, audio, video, ID styling, hover styling,
-animations, visibility toggles, style changes, click counters, random numbers, timers,
-keyboard events, console logging, and reusable functions.
-
-The block library and visual program are both scrollable.
+Open `index.html` to use it.
